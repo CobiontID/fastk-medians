@@ -23,6 +23,11 @@ static char *Usage = "<source_root>[.prof] <read:int> ...";
  *  Test Stub
  *
  *****************************************************************************************/
+int comp(const void *a,const void *b) {
+  int *x = (int *) a;
+  int *y = (int *) b;
+return *x - *y;
+}
 
 int main(int argc, char *argv[])
 { Profile_Index *P;
@@ -82,7 +87,7 @@ int main(int argc, char *argv[])
             profile = Realloc(profile,pmax*sizeof(uint16),"Profile array");
             Fetch_Profile(P,(int64) id-1,pmax,profile);
           }
-
+        qsort (profile, plen, sizeof(uint16), comp);
         if (plen % 2 == 0)
           { printf("%i\n", (profile[plen/2 - 1] + profile[plen/2]) / 2); }
         else

@@ -14,6 +14,7 @@
 #include <dirent.h>
 #include <math.h>
 
+
 #include "libfastk.h"
 
 static char *Usage = "<source_root>[.prof] ...";
@@ -23,6 +24,12 @@ static char *Usage = "<source_root>[.prof] ...";
  *  Test Stub
  *
  *****************************************************************************************/
+
+int comp(const void *a,const void *b) {
+  int *x = (int *) a;
+  int *y = (int *) b;
+return *x - *y;
+}
 
 int main(int argc, char *argv[])
 { Profile_Index *P;
@@ -66,7 +73,7 @@ int main(int argc, char *argv[])
     profile = Malloc(pmax*sizeof(uint16),"Profile array");
     
     reads = P->nbase[P->nparts-1];
-    for (id = 1; id < reads; id++)
+    for (id = 1; id <= reads; id++)
       { 
         plen = Fetch_Profile(P,(int64) id-1,pmax,profile);
         if (plen > pmax)
@@ -75,6 +82,7 @@ int main(int argc, char *argv[])
             Fetch_Profile(P,(int64) id-1,pmax,profile);
           }
         //modified to print median value instead of iterating through all kmers
+        qsort (profile, plen, sizeof(uint16), comp);
         if (plen % 2 == 0)
           { printf("%i\n", (profile[plen/2 - 1] + profile[plen/2]) / 2); }
         else
