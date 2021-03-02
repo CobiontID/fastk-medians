@@ -13,7 +13,10 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <math.h>
-
+// Added
+#include "HTSLIB/htslib/hts.h"
+#include "HTSLIB/htslib/ksort.h"
+KSORT_INIT_GENERIC(uint16_t)
 
 #include "libfastk.h"
 
@@ -68,6 +71,7 @@ int main(int argc, char *argv[])
   { int     id, reads;
     uint16 *profile;
     int     pmax, plen;
+    int     median;
 
     pmax    = 20000;
     profile = Malloc(pmax*sizeof(uint16),"Profile array");
@@ -82,11 +86,8 @@ int main(int argc, char *argv[])
             Fetch_Profile(P,(int64) id-1,pmax,profile);
           }
         //modified to print median value instead of iterating through all kmers
-        qsort (profile, plen, sizeof(uint16), comp);
-        if (plen % 2 == 0)
-          { printf("%i\n", (profile[plen/2 - 1] + profile[plen/2]) / 2); }
-        else
-          { printf("%i\n", profile[plen / 2]); }
+        median = ks_ksmall(uint16_t, plen, profile, plen/2);
+        printf("%i\n", median);
       }
     free(profile);
   }
