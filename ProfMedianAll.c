@@ -28,11 +28,6 @@ static char *Usage = "<source_root>[.prof] ...";
  *
  *****************************************************************************************/
 
-int comp(const void *a,const void *b) {
-  int *x = (int *) a;
-  int *y = (int *) b;
-return *x - *y;
-}
 
 int main(int argc, char *argv[])
 { Profile_Index *P;
