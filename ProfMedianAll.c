@@ -1,9 +1,10 @@
 /*********************************************************************************************\
  *
- *  Example code for opening and fetching compressed profiles produced by FastK
+ *  Code for opening and fetching compressed profiles produced by FastK and returning the
+ *  median k-mer count for all sequences
  *
- *  Author:  Gene Myers
- *  Date  :  October, 2020
+ *  Author:  Gene Myers, modified by Claudia C. Weber <cw21@sanger.ac.uk>
+ *  Date  :  March, 2021
  *
  *********************************************************************************************/
  
