@@ -1,7 +1,7 @@
 # fastk-medians
 A set of utilities to calculate the median number of times the k-mers in a sequence of interest occur across the whole set. For high-quality sequencing reads, this provides a rough approximation of coverage.
 
-The code is based on the Profex module of [FastK](https://github.com/thegenemyers/FASTK), and is intended to be used in conjunction with FastK.
+The code is based on the Profex module of [FastK](https://github.com/thegenemyers/FASTK), and is intended to be used in conjunction with FastK. Though it is possible to obtain medians by processing the standard Profex output, performing the calculations directly via the C-library interface is more efficient.
 
 ## ProfMedian
 This program is based on FastK's Profex, but returns the median count for each read in a list, instead of a full list of k-mer counts. It requires a FastK profile file as input.
