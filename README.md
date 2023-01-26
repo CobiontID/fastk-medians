@@ -23,6 +23,8 @@ This tool performs the same calculation as ProfMedian, but iterates through the 
 Usage: 
 `./ProfMedianAll <profile: .prof>`
 
+## Installation
+Download the files from this repository, navigate to the `src` directory, and run `make`. This will compile the programs described above, as well as the standard FastK binaries.
 
 ## Additional info on FastK
 For the original FastK Readme, see [here](README_FastK.md) or visit https://github.com/thegenemyers/FASTK
