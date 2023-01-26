@@ -4,7 +4,7 @@
  *  median k-mer count for all sequences
  *
  *  Author:  Gene Myers, modified by Claudia C. Weber <cw21@sanger.ac.uk>
- *  Date  :  March, 2021
+ *  Date  :  March, 2021 - 2023
  *
  *********************************************************************************************/
  
