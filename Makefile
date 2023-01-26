@@ -4,7 +4,7 @@ CFLAGS = -O3 -Wall -Wextra -Wno-unused-result -fno-strict-aliasing
 
 CC = gcc
 
-ALL = FastK Fastrm Fastmv Fastcp Fastmerge Histex Tabex Profex Logex Vennex Symmex Haplex Homex Fastcat
+ALL = FastK Fastrm Fastmv Fastcp Fastmerge Histex Tabex Profex Logex Vennex Symmex Haplex Homex Fastcat ProfMedian ProfMedianAll
 
 all: deflate.lib libhts.a $(ALL)
 
@@ -64,6 +64,11 @@ Haplex: Haplex.c libfastk.c libfastk.h
 Homex: Homex.c libfastk.c libfastk.h
 	$(CC) $(CFLAGS) -o Homex Homex.c libfastk.c -lpthread -lm
 
+ProfMedian: ProfMedian.c libfastk.c libfastk.h
+	$(CC) $(CFLAGS) -o ProfMedian ProfMedian.c libfastk.c HTSLIB/libhts.a -lpthread $(HTSLIB_static_LIBS)
+
+ProfMedianAll: ProfMedianAll.c libfastk.c libfastk.h
+	$(CC) $(CFLAGS) -o ProfMedianAll ProfMedianAll.c libfastk.c HTSLIB/libhts.a -lpthread $(HTSLIB_static_LIBS)
 
 tidyup:
 	rm -f $(ALL)
