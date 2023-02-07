@@ -28,3 +28,10 @@ Download the files from this repository, navigate to the `src` directory, and ru
 
 ## Additional info on FastK
 For the original FastK Readme, see [here](README_FastK.md) or visit https://github.com/thegenemyers/FASTK
+
+## Licensing
+This repository incorporates code from multiple pieces of software, for which the terms can be found under:
+
+- FastK: src/LICENSE
+- Htslib: src/HTSLIB/LICENSE
+- Libdeflate: src/LIBDEFLATE/COPYING
